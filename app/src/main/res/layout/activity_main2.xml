@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+    <data>
+        <variable
+            name="name"
+            type="String" />
+        <variable
+            name="number"
+            type="String" />
+        <variable
+            name="mainactivity"
+            type="com.shruti.activitydatabinding.MainActivity2" />
+        <variable
+            name="show"
+            type="Boolean"/>
+        <import type="android.view.View"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{name}"
+            android:textSize="@dimen/size_50sp"
+            android:visibility="@{show?View.VISIBLE:View.GONE}"
+            tools:text="@string/name"
+            android:id="@+id/tvname" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{number.toString()}"
+            android:visibility="@{show?View.VISIBLE:View.GONE}"
+            android:textSize="@dimen/size_20sp"
+            tools:text="@string/number"
+            android:id="@+id/tvnumber" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/clickhere"
+            android:onClick="@{()-> mainactivity.ButtonClick()}"
+            android:id="@+id/btnclick"/>
+    </LinearLayout>
+</layout>
